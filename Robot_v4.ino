@@ -1,12 +1,5 @@
-/******************************************
 
-  Programme Robot_v4 :
-    - Détection du jaune
-    - Mise en mouvement du robot si présence de jaune
-    - Le robot reste à 10 cm de la Mire
-    - Le robot tourne quand la mire se décale
- 
-******************************************/
+
 // Déclaration des librairie
 #include <Pixy2.h>        // Fonctions pour la caméra
 #include <ZumoMotors.h>   // Fonctions pour les moteurs
@@ -25,7 +18,7 @@ int PositionMesure=0;  // Variable contient la positon sur x de la mire
 float erreur_Position=0; // Ecart entre la mesure et la référence
 int vitesse = 0;
 
-void setup(){
+void setup(void) {
   // Robot à l'arrêt
   motors.setLeftSpeed(0);
   motors.setRightSpeed(0);
@@ -37,7 +30,7 @@ void setup(){
   //pixy.setLamp(1, 1); // Allumer la lumière de la caméra
 }
 
-void loop(){
+void loop(void){
   pixy.ccc.getBlocks(); // Lire les données de la caméra
   if(pixy.ccc.blocks[0].m_signature == signature){  // Si la signature a été détéctée
     // Détection de la distance entre le robot et la mire
@@ -54,7 +47,8 @@ void loop(){
     motors.setRightSpeed(vitesse+erreur_Position); 
     
     Serial.println("Mire détectée");  // Ecrire sur le moniteur "Mire détectée"
-  }else{
+  }
+  else {
     // Robot à l'arrêt
     motors.setLeftSpeed(0);
     motors.setRightSpeed(0);
