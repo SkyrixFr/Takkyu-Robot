@@ -17,7 +17,7 @@ ZumoMotors motors;        // Déclaration des moteurs
 
 // Déclaration des variables
 int signature=1;  // La caméra a été configurée pour détecter du jaune sur la signature 1
-int LargeurRef=20;  // 20px pour une gommette à 10 cm (8 mm  de diamètre)
+int LargeurRef=60;  // 20px pour une gommette à 10 cm (8 mm  de diamètre)
 int LargeurMesure=0;  // Variable contient la distance réelle entre le mire et le robot
 float erreur_Largeur=0; // Ecart entre la mesure et la référence
 int PositionRef=158;  // 158px pour une gommette au centre de la caméra
